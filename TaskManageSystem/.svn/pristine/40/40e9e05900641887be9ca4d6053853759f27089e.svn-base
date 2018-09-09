@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+			<!-- Bootstrap Styles-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+     <!-- FontAwesome Styles-->
+    <link href="../css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+    <link href="../css/custom-styles.css" rel="stylesheet" />
+
+	</head>
+	<body>
+		<div class="context">
+		<div class="form-group">
+		    <label for="name">选择课程</label>
+		    <select class="form-control select_block">
+		    </select>	
+		 </div>
+		 <div class="form-group">
+		    <label for="name" id="cla">选择班级 </label>
+		    <select class="form-control class_block">
+		    </select>	
+		 </div>
+		 <div class="form-group">
+		    <label for="name">作业标题</label>
+		    <input type="text" class="form-control title" id="name" placeholder="请输入作业标题">
+		  </div>
+		 <div class="form-group">
+		    <label for="name">作业完成时间</label>
+		    <input type="text" id="test10" class="form-control" id="name" placeholder="请选择时间范围">
+  		</div>
+  		<div class="form-group">
+		    <label for="name">作业内容</label>
+		  </div>
+		</div>
+		 <!-- 加载编辑器的容器 -->
+	    <script id="container" name="content" type="text/plain">
+	        ...
+	    </script>
+	    <!-- 配置文件 -->
+	 <!--    <script type="text/javascript" src="ueditor/ueditor.config.js"></script> -->
+	    <!-- 编辑器源码文件 -->
+<!-- 	    <script type="text/javascript" src="ueditor/ueditor.all.js"></script> -->
+	    <!-- 实例化编辑器 -->
+	    <script type="text/javascript">
+	        var ue = UE.getEditor('container',{
+	        	 toolbars: [
+    ['fullscreen',  'undo', 'redo' ,'bold', 'italic', 'fontborder', 'strikethrough', 'underline','fontfamily',  'fontsize'],
+    [  'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc']
+],
+		    autoHeightEnabled: true,
+		    autoFloatEnabled: true
+	        });
+	    </script>
+
+	<button type="button" class="btn btn-primary add_task" style="margin-top:10px;">提交</button>
+	
+	<script src="../js/jquery.min.js"></script>
+      <!-- Bootstrap Js -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+      <!-- Custom Js -->
+   <!-- <script src="../js/custom-scripts.js"></script>-->
+    <script>
+    
+    	$(document).ready(function(){
+    		var tid="";
+    		$.post("../course/showCourse",function(msg){
+ 			 	$(".select_block").empty(); 			 
+                $.each(msg,function(i){
+              	$(".select_block").append("<option>"+msg[i].cName+"</option>");              	
+              })
+					   },"json"); 
+    		$.post("../course/showClasss",function(msg){ 
+    			var s = msg.toString().split(",");
+    			$(".class_block").empty(); 	
+    			for(var i=0;i<s.length;i++){
+    				$(".class_block").append("<option>"+s[i]+"</option>");   
+    			}
+           },"json"); 
+    		
+    		  $.post("../user/getSession",{sessionName:"techer_sno"} ,
+    		    	    function(msg){
+    			          tid=msg;
+    		    	    	/* $.ajax({
+    		    	    		url:"../stu/select",
+    		    	    		type:"post",
+    		    	    		data:{msg:msg},
+    		    	    		dataType:"json",
+    		    	    		success:function(job){
+    		    	    			
+    		    	    			
+    		    	    		   }
+    		    	    	     }); */
+    		    	    })
+    		$.post("../course/showClasss",function(msg){ 
+    			var s = msg.toString().split(",");
+    			$(".class_block").empty(); 	
+    			for(var i=0;i<s.length;i++){
+    				$(".class_block").append("<option>"+s[i]+"</option>");   
+    			}
+           },"json"); 
+    		
+    		$(".add_task").click(function(){
+    			var claSelect=$(".class_block").find("option:selected").text();//选中的文本
+        		var courseSelect=$('.select_block option:selected').text();//选中的值
+        		var title = $(".title").val();
+        		var date = $("#test10").val();
+        		var start = date.substring(0,19);
+        		var end = date.substring(20,date.length);
+        		var task = UE.getEditor('container').getContent();
+    			if(title.trim()==""){
+    				alert("标题不能为空")
+    			}else if(date.trim()==""){
+    				alert("时间不能为空")
+    			}else if(tid=="ng"){
+    				alert("请登陆")
+    				window.location.href="teacherlogin.html";
+    			}
+    			
+    			else{
+    				
+    				 $.ajax({
+	    	    		url:"../user/addTask",
+	    	    		type:"post",
+	    	    		data:{tid:tid,taskName:title,start:start,end:end,context:task,
+	    	    			cName:courseSelect,cla:claSelect},
+	    	    		
+	    	    		success:function(job){
+	    	    			if(job=="ok"){
+	    	    				alert("添加成功");
+	    	    				window.location.reload();
+	    	    			}
+	    	    			
+	    	    		   }
+	    	    	     }); 
+    			}
+    			
+    		})
+    		
+    	})
+    	
+    </script>
+    <script>
+    laydate.render({
+    	  elem: '#test10'
+    	  ,type: 'datetime'
+    	  ,range: true
+    	}); 
+  </script>
+
+	</body>
+</html>

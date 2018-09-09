@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gxun.task.mapper.TaskMapper">
+	<insert id="addOneCourse" >
+		insert into tb_course values(null,#{param1},null)
+	</insert>
+	<select id="qryCourseByName" resultType="CourseTask">
+		select * from tb_course where cname=#{param1}
+	</select>
+	<select id="qryCourses" resultType="CourseTask">
+		select * from tb_course 
+	</select>
+	<delete id="delCourse">
+		delete from tb_course where cname in (#{param1})
+	</delete>
+	
+	<select id="showClasss" resultType="java.lang.String">
+		select DISTINCT stu_class from student
+	</select>
+</mapper>

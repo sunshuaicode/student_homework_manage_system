@@ -1,0 +1,62 @@
+ body{
+ 	background-repeat: no-repeat;
+ 	background-size:100% 100%;
+ 	background-attachment: fixed;
+ }
+#teacher_list{
+	border-color: #E6EAE9;
+}
+#teacher_list1{
+	position:absolute;
+                  top:700px;
+                  left:520px;
+                  font-size: 19px;
+                  font-family: "隶书";
+                  color: #000000;
+}
+ .add_Tea{
+                 /*position:absolute;*/
+                 
+                  font-size:18px;
+                  font-family:"微软雅黑";
+                  font-weight:20px;
+                  color:#ffffff;
+                  outline:none;
+                  /*background:#ef4300;*/
+                  background:#99CCCC;
+                  /*background:#ff4e20;*/
+                  height:44px;
+                  width:270px;
+                  border:0px;
+                  border-radius:0.1em;
+                  cursor:pointer;
+                  opacity:1;
+                  }
+    .add_Tea:hover{
+			background: #CCCCCC;
+		}
+		
+.tea_attribute{
+				font-size: 18px;
+				font-weight: 20px;
+				font-family: "微软雅黑";
+				color:black;
+			}
+			#tea_head{
+				font-size: 25px;
+				font-weight: 30px;
+				font-family: "微软雅黑";
+				color: #CCCCCC;
+				background-color: #003366;
+			}
+.th_head1{
+	background-color:#003366;
+}
+#addteacher {
+   display: none;
+   position: absolute;
+}
+#updateteacher {
+   display: none;
+   position: absolute;
+}

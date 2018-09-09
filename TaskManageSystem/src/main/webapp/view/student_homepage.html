@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+	<!-- Bootstrap Styles-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+     <!-- FontAwesome Styles-->
+    <link href="../css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+    <link href="../css/custom-styles.css" rel="stylesheet" />
+     <!-- Google Fonts-->
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><i class="glyphicon glyphicon-home"></i> <strong>Task Manage</strong></a>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+               
+                <!-- /.dropdown -->
+                <li class="dropdown" style="margin: 0 20px 0 0;">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class=" 	glyphicon glyphicon-plus"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class=" 	glyphicon glyphicon-plus"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class=" 	glyphicon glyphicon-plus"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+
+                        <li><a href="../view/index.html" ><i class="	glyphicon glyphicon-plus"></i> Logout</a>
+
+
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a href="#" id="cha"><i class=" 	glyphicon glyphicon-plus"></i> 查看作业</a>
+                    </li>
+                    <li>
+                        <a href="#" id="score"><i class=" 	glyphicon glyphicon-plus"></i> 查看分数</a>
+                    </li>
+                   
+                    
+                    
+
+                    
+                    
+                </ul>
+
+            </div>
+
+        </nav>
+        <div id="page-wrapper" style="padding-top: 60px;" >
+        <table border="1" width="900" height="50" align="center" cellpadding="10" cellspacing="0" id="teacher_list">
+			<thead>
+				<tr id="tea_head">
+				
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+		<div style="width:900px;margin:0 auto;border:1px solid blue;margin-top:30px;display:none;" id="ans"></div>
+           
+        </div>
+       </div>
+    <script src="../js/jquery.min.js"></script>
+      <!-- Bootstrap Js -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <script>
+    	$(document).ready(function(){
+    		   		
+    	
+    		$("#cha").click(function(){
+    	     $.post("../user/getSession",{sessionName:"account"} ,
+	    	    function(msg){
+	    	    	$.ajax({
+	    	    		url:"../stu/select",
+	    	    		type:"post",
+	    	    		data:{msg:msg},
+	    	    		dataType:"json",
+	    	    		success:function(job){
+	    	    			
+	    	    			
+	    	    			 $("tbody").empty();
+	    	    			 $("thead").empty();
+	    	    			  var tb= $("<tr>");;
+ 	                         tb.append("<td>"+"作业序号"+"</td>");
+ 	                         tb.append("<td>"+"作业名称"+"</td>");
+ 	                         tb.append("<td>"+"作业发布时间"+"</td>");
+ 	                         tb.append("<td>"+"作业结束时间"+"</td>");
+ 	                         tb.append("<td>"+""+"</td>");
+ 	                        $("thead").append(tb);
+	    	                    var k=1;
+	    	                    $.each(job,function(i){
+	    	                       
+	    	                    	var trObj = $("<tr>");
+	    	                    	trObj.append("<td>"+k+"</td>");
+	    	                    	trObj.append("<td>"+job[i].name+"</td>");
+	    	                    	trObj.append("<td>"+job[i].starttime+"</td>");
+	    	                    	trObj.append("<td>"+job[i].endtime+"</td>");
+	    	                    	trObj.append("<td><a href='#' id='do_task'>完成作业</a>"+"</td>");
+	    	                    	$("tbody").append(trObj);
+	    	                    	k++;
+	    	                    })
+	    	    		   }
+	    	    	     });
+	    	    })
+    	    	
+    	    
+    	    })
+    	   
+    	    
+    		});
+    </script>
+     <script>
+    	$(document).ready(function(){
+    		$("#wrapper").on("click","#do_task",function(){
+    			var taskName= $(this).parent().siblings().eq(1).text();
+    			 $("tbody").empty();
+    			 $("thead").empty();
+    				 window.location.href="../ueditor/new_file.html?id="+taskName;
+    		})
+    		
+    		$("#wrapper").on("click","#viewAnswer",function(){
+    			var taskName= $(this).parent().siblings().eq(1).text();
+    			 
+    			 $.post("../user/getTask",{taskName:taskName} ,
+    			    	    function(msg){
+    				 $("#ans").html(msg.anwser);
+    				 $("#ans").toggle();
+    			 },"json");
+    		})
+    		   		
+    	
+    		$("#score").click(function(){
+    	     $.post("../user/getSession",{sessionName:"account"} ,
+	    	    function(msg){
+	    	    	$.ajax({
+	    	    		url:"../stu/selectscore",
+	    	    		type:"post",
+	    	    		data:{msg:msg},
+	    	    		dataType:"json",
+	    	    		success:function(score){
+	    	    			
+	    	    			
+	    	    			 $("tbody").empty();
+	    	    			 $("thead").empty();
+	    	    			  var tb= $("<tr>");;
+ 	                         tb.append("<td>"+"作业序号"+"</td>");
+ 	                         tb.append("<td>"+"作业名称"+"</td>");
+ 	                         tb.append("<td>"+"作业分数"+"</td>");
+ 	                         tb.append("<td>"+"查看答案"+"</td>");
+ 	                        $("thead").append(tb);
+	    	                    var k=1;
+	    	                    $.each(score,function(i){
+	    	                   
+	    	                    	var trObj = $("<tr>");
+	    	                    	trObj.append("<td>"+k+"</td>");
+	    	                    	trObj.append("<td>"+score[i].name+"</td>");
+	    	                    	trObj.append("<td>"+score[i].score+"</td>");
+	    	                    	
+	    	                    	trObj.append("<td><a href='#' id='viewAnswer'>查看答案</a>"+"</td>");
+	    	                    	$("tbody").append(trObj);
+	    	                    	k++;
+	    	                    })
+	    	    		   }
+	    	    	     });
+	    	    })
+    	    	
+    	    
+    	    })
+    	   
+    	    
+    		});
+    </script>
+    
+  
+</body>
+</html>

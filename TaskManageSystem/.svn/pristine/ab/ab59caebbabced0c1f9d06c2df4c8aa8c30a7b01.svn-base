@@ -1,0 +1,21 @@
+package com.gxun.task.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.gxun.task.entity.Teacher;
+import com.gxun.task.mapper.TeacherMapper;
+import com.gxun.task.service.ITeacherService;
+@Service
+public class TeacherServiceImpl implements ITeacherService{
+	@Autowired
+	TeacherMapper teacherMapper;
+	@Override
+	public boolean isInsertTeacher(String t_no,String t_password,String t_name,String t_phonenum,String t_college){
+		Teacher t = teacherMapper.insertTeaInfo(t_no, t_password, t_name, t_phonenum, t_college);
+		if (t!=null){
+			return true;
+		}
+		return false;
+	}
+}

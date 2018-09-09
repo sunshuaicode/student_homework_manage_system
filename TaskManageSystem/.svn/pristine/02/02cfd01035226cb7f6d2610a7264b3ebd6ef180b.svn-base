@@ -1,0 +1,33 @@
+package com.gxun.task.controller;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.gxun.task.service.IUserService;
+@Controller
+@RequestMapping("/user")
+public class UserController {
+	@Autowired
+	IUserService usvr;
+	@RequestMapping("/lg") 
+	public String login(String account, String pwd,HttpServletRequest reqest){
+		boolean result = usvr.isValidUser(account, pwd);
+		if (result){
+			reqest.getSession().setAttribute("account", account);
+			return "student_homepage";
+		}
+		return "ng";
+	}
+	@RequestMapping("/getSession") 
+	@ResponseBody
+	  public String getSession(String sessionName, HttpServletRequest request) {
+
+	        if (request.getSession().getAttribute(sessionName) == null) {
+	            return "ng";
+	        }
+	        return request.getSession().getAttribute(sessionName).toString();
+	    }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/student_homepage.css" />
+		<script src="../js/student_homepage.js">
+		</script>
+	
+	</head>
+		<div class="c">
+			<h2>
+				<h2>
+				<a><img src="../images/管理系统.png" width="50px" height="50px"/></a> 
+				作业管理系统 >   <span style="font-size: 30px;"> 学生</span>
+			</h2>
+			</h2>
+		</div>
+		
+		
+		<div class="e">
+					<img src="../images/ren.png" width="200px" height="200px">
+			
+	        <h3>姓名： <span class="label label-default">陈灿</span></h3>
+	        <h3>班级： <span class="label label-default">15软件工程</span></h3>
+	        <h3>学号： <span class="label label-default">115583010145</span></h3>
+	 		<button name="查看作业a" href="查看作业.html" class="button" onclick="abc(1)">查看作业</button>
+			<button name="查看分数a" href="查看分数.html" class="button">查看分数</button>
+		
+		
+		
+		</div>
+		
+		
+
+         
+         
+         
+          <div class="a">
+		<div class="stu_attribute">
+		<table border="1" width="800" height="50"   cellpadding="10" cellspacing="0" id="student_list">
+			<thead>
+				<tr id="stu_head">
+					<th>作业名称</th>
+					<th>任课老师</th>
+					<th>发布日期</th>
+					<th>截止日期</th>
+					<th>查看作业</th>
+					<th>是否提交</th>
+					
+					</form>
+					</th>
+				</tr>
+			</thead>
+			
+		</table>
+		</div>
+		
+		
+	
+	
+	</body>
+</html>

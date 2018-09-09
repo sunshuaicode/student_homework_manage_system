@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="UTF-8">
+		<title>添加班级</title>
+		<link rel="stylesheet" href="../css/add_class.css" />
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/add_class.js">
+		</script>
+</head>
+	<body background="../images/img4.jpg">
+		<div id="addclass" style="position: absolute; background: #E5E5E5; width: 600PX;height: 450px; z-index: 5000;">
+	   	<form method="get" action="../studentinfo/s_insert" style="padding-left: 26%;">
+	   	<p style="margin-left: 20%;font-size: 20px;">添加学生</p>
+	    <input type="text" name="stuNo" placeholder="请输入学生学号:" class="user" style="position:absolute;top:50px;font-size:18px;width:270px; height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 3px 0 rgba(0,0,0,1) inset;text-indent:10px;"/>
+	    <input type="text" name="stuName" placeholder="请输入学生姓名:" style="position:absolute;top:110px;font-size:18px;width:270px;height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 3px 0 rgba(0,0,0,1) inset;text-indent:10px;"/>
+	    <input type="text" name="stuPwd" placeholder="请输入学生密码:" style="position:absolute;top:170px;font-size:18px;width:270px;height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 3px 0 rgba(0,0,0,1) inset;text-indent:10px;"/>
+	    <input type="text" name="stuClass" placeholder="请输入专业班级:" style="position:absolute;top:230px;font-size:18px;width:270px;height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 3px 0 rgba(0,0,0,1) inset;text-indent:10px;"/>
+	    <input type="text" name="stuCollege" placeholder="请输入学生学院:" style="position:absolute;top:290px;font-size:18px;width:270px;height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 3px 0 rgba(0,0,0,1) inset;text-indent:10px;"/>
+	    <input id="submit" type="submit" value="确定添加"  onclick = "Javascript:disp_confirm()" style="position:absolute;top:350px;left:;cursor:pointer;opacity:1;background:#99CCCC;width:130px;height:44px;border:0px;border-radius:0.1em;font-size:18px;font-family:"微软雅黑";font-weight:20px;color:#ffffff;"/>
+	    <input id="cancel" type="button" value="取消添加" onclick="javascript:hideLayer('addclass')" style="position:absolute;top:350px;left:50%; cursor:pointer;opacity:1;background:#99CCCC;width:130px;height:44px;border:0px;border-radius:0.1em;font-size:18px;font-family:"微软雅黑";font-weight:20px;color:#ffffff;"/>
+	    </form>
+	   </div>
+	   <div id="updateclass" style="position: absolute; background: #E5E5E5; width: 600PX;height: 450px; z-index: 5000;">
+	   	<form method="post" action="#" style="padding-left: 26%;">
+	   	<p style="margin-left: 20%;font-size: 20px;">修改学生</p>
+	    <input type="text" name="stuNo" placeholder="请输入学生学号:" class="user" style="position:absolute;top:50px;font-size:18px;width:270px; height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 3px 0 rgba(0,0,0,1) inset;text-indent:10px;"/>
+	    <input type="text" name="stuName" placeholder="请输入学生姓名:" style="position:absolute;top:110px;font-size:18px;width:270px;height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 3px 0 rgba(0,0,0,1) inset;text-indent:10px;"/>
+	    <input type="text" name="stuPwd" placeholder="请输入学生密码:" style="position:absolute;top:170px;font-size:18px;width:270px;height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 3px 0 rgba(0,0,0,1) inset;text-indent:10px;"/>
+	    <input type="text" name="stuClass" placeholder="请输入专业班级:" style="position:absolute;top:230px;font-size:18px;width:270px;height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 3px 0 rgba(0,0,0,1) inset;text-indent:10px;"/>
+	    <input type="text" name="stuCollege" placeholder="请输入学生学院:" style="position:absolute;top:290px;font-size:18px;width:270px;height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);box-shadow:0 2px 3px 0 rgba(0,0,0,1) inset;text-indent:10px;"/>
+	    <input id="submit" type="submit" value="确定修改" style="position:absolute;top:350px;left:;cursor:pointer;opacity:1;background:#99CCCC;width:130px;height:44px;border:0px;border-radius:0.1em;font-size:18px;font-family:"微软雅黑";font-weight:20px;color:#ffffff;"/>
+	    <input id="cancel" type="button" value="取消修改" onclick="javascript:hideLayer('updateclass')" style="position:absolute;top:350px;left:50%; cursor:pointer;opacity:1;background:#99CCCC;width:130px;height:44px;border:0px;border-radius:0.1em;font-size:18px;font-family:"微软雅黑";font-weight:20px;color:#ffffff;"/>
+	    </form>
+	   </div>
+		<div class="stu_attribute">
+		<table border="1" width="1500" height="50" align="center" cellpadding="10" cellspacing="0" id="student_list">
+			<thead>
+				<tr id="stu_head">
+					<th class="th_head2" width="15%">学号</th>
+					<th class="th_head1" width="15%">姓名</th>
+					<th class="th_head2" width="15%">密码</th>
+					<th class="th_head1" width="15%">专业班级</th>
+					<th class="th_head2" width="15%">学院</th>
+					<th width="25%">
+					<input type="submit" value="添加学生" class="add_stu" onclick="showLayer('addclass',600,450)"/>
+<!-- 					<form method="get" action="#" id="add"> -->
+<!-- 					<button class="button">...</button> -->
+<!-- 					<input type="file" class="upload" title="导入学生"/> -->
+<!-- 					</form> -->
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+<!-- 		<div id="student_list1"> -->
+<!-- 			 <span id="spanFirst">第一页</span> <span id="spanPre">上一页</span> <span id="spanNext">下一页</span> <span id="spanLast">最后一页</span> 第<span id="spanPageNum"></span>页/共<span id="spanTotalPage"></span>页 -->
+<!-- 		</div> -->
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			alert("sss");
+			 $.ajax({
+                 url: "../studentinfo/s_search",   //访问的地址
+                 type:"post",
+                 //data:{},   //传的数据，参数
+                 dataType:"json",
+                 success: function(msg){
+                    //这个msg就是controller返回的json数据，因为有很多条数据，所以要进行遍历
+                    $("tbody").empty();
+                    var k=1;
+                    $.each(msg,function(i){
+                    	var trObj = $("<tr>");
+                    	trObj.append("<td>"+k+"</td>");
+                    	trObj.append("<td>"+msg[i].stuName+"</td>");
+                    	trObj.append("<td>"+msg[i].stuPwd+"</td>");
+                    	trObj.append("<td>"+msg[i].stuClass+"</td>");
+                    	trObj.append("<td>"+msg[i].stuCollege+"</td>");
+                    	trObj.append("<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='#'>编辑</a>"+
+                    	"   &nbsp;&nbsp;&nbsp;&nbsp;	<a href='#'>删除</a></td>");
+                    	$("tbody").append(trObj);
+                    	k++;
+                    })
+                 }
+             });
+		})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+package com.gxun.task.controller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.gxun.task.service.IUserService;
+@Controller
+@RequestMapping("/user")
+public class UserController {
+	@Autowired
+	IUserService usvr;
+	@RequestMapping("/lg") 
+	public String login(String account, String pwd){
+		boolean result = usvr.isValidUser(account, pwd);
+		if (result){
+			return "student_homepage";
+		}
+		return "ng";
+	}
+}

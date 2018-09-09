@@ -1,0 +1,87 @@
+ body{
+ 	background-repeat: no-repeat;
+ 	background-size:100% 100%;
+ 	background-attachment: fixed;
+ }
+#student_list{
+	border-color: #E6EAE9;
+}
+#student_list1{
+	              position:absolute;
+                  top:700px;
+                  left:520px;
+                  font-size: 19px;
+                  font-family: "微软雅黑";
+                  color: #000000;
+}
+ .add_stu{
+                 /*position:absolute;*/
+                 
+                  font-size:18px;
+                  font-family:"微软雅黑";
+                  font-weight:20px;
+                  color:#ffffff;
+                  outline:none;
+                  /*background:#ef4300;*/
+                  background:#99CCCC;
+                  /*background:#ff4e20;*/
+                  height:44px;
+                  width:70%;
+                  border:0px;
+                  border-radius:0em;
+                  cursor:pointer;
+                  opacity:1;
+                  }
+            .add_stu:hover{
+            	background-color: #CCCCCC;
+            }
+.stu_attribute{
+				font-size: 18px;
+				font-weight: 20px;
+				font-family: "微软雅黑";
+				color:black;
+			}
+			#stu_head{
+				font-size: 25px;
+				font-weight: 30px;
+				font-family: "微软雅黑";
+				color: #CCCCCC;
+				background-color: #003366;
+			}
+.th_head1{
+	background-color:#003366;
+}
+ .button{
+                 /*position:absolute;*/
+                  position: absolute;
+                  font-size:15px;
+                  font-family:"微软雅黑";
+                  font-weight:20px;
+                  text-align: center;
+                  color:#ffffff;
+                  outline:none;
+                  background:#CCCCCC;
+                  width: 28px;
+                  height:44px;
+                  border:0px;
+                  border-radius:0em;
+                  cursor:pointer;
+                  opacity:1;
+                  }
+            .button:hover{
+            	background-color: #4f4f4f;
+            }
+.upload{
+	position: absolute;
+	width: 28px;
+	height: 44px;
+	opacity: 0;
+}
+#addclass {
+   display: none;
+   position: absolute;
+}
+#updateclass {
+   display: none;
+   position: absolute;
+}

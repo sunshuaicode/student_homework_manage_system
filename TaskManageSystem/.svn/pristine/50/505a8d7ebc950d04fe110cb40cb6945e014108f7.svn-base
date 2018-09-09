@@ -1,0 +1,64 @@
+package com.gxun.task.entity;
+
+
+
+import com.mysql.fabric.xmlrpc.base.Data;
+
+public class Text {
+private String id;
+private String name;
+private Data publictime;
+private Data starttime;
+private Data endtime;
+private String requirement;
+private String anwser;
+private String gread;
+public String getId() {
+	return id;
+}
+public void setId(String id) {
+	this.id = id;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public Data getPublictime() {
+	return publictime;
+}
+public void setPublictime(Data publictime) {
+	this.publictime = publictime;
+}
+public Data getStarttime() {
+	return starttime;
+}
+public void setStarttime(Data starttime) {
+	this.starttime = starttime;
+}
+public Data getEndtime() {
+	return endtime;
+}
+public void setEndtime(Data endtime) {
+	this.endtime = endtime;
+}
+public String getRequirement() {
+	return requirement;
+}
+public void setRequirement(String requirement) {
+	this.requirement = requirement;
+}
+public String getAnwser() {
+	return anwser;
+}
+public void setAnwser(String anwser) {
+	this.anwser = anwser;
+}
+public String getGread() {
+	return gread;
+}
+public void setGread(String gread) {
+	this.gread = gread;
+}
+}

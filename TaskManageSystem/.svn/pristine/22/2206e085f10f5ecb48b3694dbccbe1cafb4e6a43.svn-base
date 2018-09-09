@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gxun.task.mapper.UserMapper">
+	<select id="qryByUnameAndPwd" resultMap="stuMap">
+		select * from student where stu_no = #{param1} and stu_password = #{param2}
+	</select>
+	<resultMap type="Student" id="stuMap">
+	    <id property="id" column="id"/>
+		<result property="stuNo" column="stu_no"/>
+		<result property="stuPwd" column="stu_password"/>
+		<result property="stuCollege" column="stu_college"/>
+		<result property="stuClass" column="stu_class"/>
+	</resultMap>
+	
+</mapper>

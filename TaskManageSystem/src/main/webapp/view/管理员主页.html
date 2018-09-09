@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>管理员主页</title>
+		<link rel="stylesheet" href="../css/管理员.css" "/>
+	</head>
+	<body background="../images/timg.jpg " style="background-repeat: no-repeat;background-size:100% 100%;background-attachment: fixed;">
+
+
+		<div class="c">
+			<h2>
+				<a><img src="../images/管理系统.png" width="50px" height="50px"/></a> 
+				管理系统  >   <span style="font-size: 30px;"> </span>
+			</h2>
+		</div>
+		<div class="e">
+			<button href="ClassManage.html" class="button" onclick="window.open('添加班级.html')">添加班级</button>
+			<button href="CouserManage.html" class="button" onclick="window.open('添加课程.html')">添加课程</button>
+			<button href="TeacherManage.html" class="button" onclick="window.open('添加教师.html')">添加教师</button>
+		</div>
+		<div class="a">
+            <input id="keyword" name="keyword" size="10" style="width: 70%; height: 5%; font-size: 25px; text-align: center;" value="请输入关键字进行搜索"  
+            onfocus='if(this.value=="请输入关键字进行搜索"){this.value="";}; '   
+            onblur='if(this.value==""){this.value="请输入关键字进行搜索";};'> 
+			<button style="width: 15%;height: 6%;text-align: center;font-size: 25px;"class="roundbutton">搜索</button>
+	</body>
+</html>

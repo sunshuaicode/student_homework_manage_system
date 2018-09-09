@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gxun.task.mapper.AdminMapper">
+	<select id="qryByAnameAndPwd" resultMap="adminMap">
+		select * from admin where adm_account= #{param1} and adm_password = #{param2}
+	</select>
+	<resultMap type="Admin" id="adminMap">
+		<result property="adm_account" column="adm_account"/>
+		<result property="adm_password" column="adm_password"/>
+		<result property="adm_name" column="adm_name"/>
+	</resultMap>
+</mapper>

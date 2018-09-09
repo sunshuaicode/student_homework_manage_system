@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+	<!-- Bootstrap Styles-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+     <!-- FontAwesome Styles-->
+    <link href="../css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+    <link href="../css/custom-styles.css" rel="stylesheet" />
+     <!-- Google Fonts-->
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><i class="fa fa-gear"></i> <strong>Task Manage</strong></a>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+               
+                <!-- /.dropdown -->
+                <li class="dropdown" style="margin: 0 20px 0 0;">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a href="#" id="cha"><i class="fa fa-dashboard" ></i> 查看作业</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-dashboard"></i> 查看分数</a>
+                    </li>
+                   
+                    
+                    
+
+                    
+                    
+                </ul>
+
+            </div>
+
+        </nav>
+        <div id="page-wrapper" >
+        <table border="1" width="900" height="50" align="center" cellpadding="10" cellspacing="0" id="teacher_list">
+			<thead>
+				<tr id="tea_head">
+				<th class="th_head2" width="100px">作业序号</th>
+					<th class="th_head2" width="200px" >作业名字</th>
+					<th class="th_head1" width="200px">发布时间</th>
+					<th class="th_head2" width="200px">截止时间</th>
+					<th class="th_head2" width="200px"></th>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+           
+        </div>
+       </div>
+    <script src="../js/jquery.min.js"></script>
+      <!-- Bootstrap Js -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <script>
+    	$(document).ready(function(){
+    		   		
+    	
+    		$("#cha").click(function(){
+    	     $.post("../user/getSession",{sessionName:"account"} ,
+	    	    function(msg){
+	    	    	$.ajax({
+	    	    		url:"../stu/select",
+	    	    		type:"post",
+	    	    		data:{msg:msg},
+	    	    		dataType:"json",
+	    	    		success:function(job){
+	    	    			
+	    	    			
+	    	    			 $("tbody").empty();
+	    	                    var k=1;
+	    	                    $.each(job,function(i){
+	    	                    	var trObj = $("<tr>");
+	    	                    	trObj.append("<td>"+k+"</td>");
+	    	                    	trObj.append("<td>"+job[i].name+"</td>");
+	    	                    	trObj.append("<td>"+job[i].starttime+"</td>");
+	    	                    	trObj.append("<td>"+job[i].endtime+"</td>");
+	    	                    	trObj.append("<td><a href='#'>查看</a>"+
+	    	                    	"&nbsp;&nbsp;&nbsp;&nbsp;<a href='#'>完成</a></td>");
+	    	                    	$("tbody").append(trObj);
+	    	                    	k++;
+	    	                    })
+	    	    		   }
+	    	    	     });
+	    	    })
+    	    	
+    	    
+    	    })
+    		});
+    </script>
+   
+</body>
+</html>

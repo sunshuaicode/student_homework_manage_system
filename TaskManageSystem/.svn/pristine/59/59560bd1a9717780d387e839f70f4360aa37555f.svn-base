@@ -1,0 +1,11 @@
+package com.gxun.task.mapper;
+
+
+
+import com.gxun.task.entity.Student;
+
+
+public interface UserMapper {
+	Student qryByUnameAndPwd(String account, String pwd);
+	
+}

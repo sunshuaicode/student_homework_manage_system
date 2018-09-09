@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加课程</title>
+		<link rel="stylesheet" href="../css/添加课程.css" />
+		<script src="../js/添加课程.js">
+		</script>
+	
+	</head>
+	<body background="../images/img4.jpg">
+		<div class="course_attribute">
+		<table border="1" width="1500" height="50" align="center" cellpadding="10" cellspacing="0" id="course_list">
+			<thead>
+				<tr id="tea_head">
+					<th class="th_head2">课程号</th>
+					<th class="th_head2" width="300px">课程名</th>
+					<th class="th_head2">授课教师</th>
+					<th class="th_head2">上课班级</th>
+					<th colspan="2">
+					<form method="post" action="#" id="add">
+					<input type="button" value="添加课程" class="add_Tea" onclick="createPrompt()"/>
+					</form>
+					</th>
+				</tr>
+			</thead>
+		</table>
+		<div id="teacher_list1">
+			 <span id="spanFirst">第一页</span> <span id="spanPre">上一页</span> <span id="spanNext">下一页</span> <span id="spanLast">最后一页</span> 第<span id="spanPageNum"></span>页/共<span id="spanTotalPage"></span>页
+		</div>
+	</div>
+	</body>
+</html>

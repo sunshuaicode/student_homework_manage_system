@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+	<!-- Bootstrap Styles-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+     <!-- FontAwesome Styles-->
+    <link href="../css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+    <link href="../css/custom-styles.css" rel="stylesheet" />
+     <!-- Google Fonts-->
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><!-- <i class="fa fa-gear"></i> --> <strong>Task Manage</strong></a>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+               
+                <!-- /.dropdown -->
+                <li class="dropdown" style="margin: 0 20px 0 0;">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="glyphicon glyphicon-user"></i> 
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class=" 	glyphicon glyphicon-envelope"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="glyphicon glyphicon-asterisk"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#"><i class=" 	glyphicon glyphicon-log-out"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a href="#" id="home"><i class="glyphicon glyphicon-home"></i> 首页</a>
+                    </li>
+                    <li>
+                        <a href="#" id="course"><i class=" 	glyphicon glyphicon-plus"></i>  课程管理</a>
+                    </li>
+                    <li>
+                        <a href="#" id="task"><i class=" 	glyphicon glyphicon-plus"></i>  发布作业</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class=" 	glyphicon glyphicon-plus"></i> 批改作业</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class=" 	glyphicon glyphicon-plus"></i> 作业情况统计</a>
+                    </li>
+                    
+                    
+
+                    
+                    
+                </ul>
+
+            </div>
+
+        </nav>
+        <div id="page-wrapper" >
+                                     这是首页
+            </div>
+        </div>
+    <script src="../js/jquery.min.js"></script>
+      <!-- Bootstrap Js -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!--时间控件  -->
+    <script type="text/javascript" src="../laydate/laydate.js"></script>
+     <!-- 配置文件 -->
+	    <script type="text/javascript" src="../ueditor/ueditor.config.js"></script>
+	    <!-- 编辑器源码文件 -->
+	    <script type="text/javascript" src="../ueditor/ueditor.all.js"></script>
+
+    <script>
+    	$(document).ready(function(){
+    		$("#home").click(function(){
+    			window.location.reload();
+    		});
+    		
+    		$("#course").click(function(){
+    			$("#page-wrapper").load("course_manage.html");
+    		});
+    		
+    		$("#task").click(function(){
+    			$("#page-wrapper").load("../ueditor/add_task.html");
+    		});
+    	})
+    </script>
+   
+</body>
+</html>

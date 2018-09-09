@@ -1,0 +1,35 @@
+package com.gxun.task.service.impl;
+
+import java.util.List;
+
+
+
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.gxun.task.entity.Text;
+import com.gxun.task.mapper.UserMapper;
+
+@Service
+@Transactional
+public class StudentService implements com.gxun.task.service.StudentService {
+	@Autowired
+    UserMapper userMapper;
+	@Override
+	public List<Text> selectJob(String msg) {
+		  List<Text> text = userMapper.selectText(msg);
+	        return text;
+	    
+	}
+
+	@Override
+	public List<Text> selectScore(String msg) {
+		List<Text> text=userMapper.selectScore(msg);
+		return text;
+	}
+
+}

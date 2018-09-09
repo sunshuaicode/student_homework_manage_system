@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加课程</title>
+		<link rel="stylesheet" href="../css/add_lesson.css" />
+		<script src="../js/add_lesson.js">
+		</script>
+	
+	</head>
+	<body background="../images/img4.jpg">
+		<div id="addlesson" style="position: absolute; background: #E5E5E5; width: 600PX;height: 450px; z-index: 5000;">
+	   	<form method="post" action="#" style="padding-left: 26%;">
+	   	<p style="margin-left: 20%;font-size: 20px;">添加课程</p>
+	    <input type="text" placeholder="请输入课程号:" class="user" style="position:absolute;top:50px;font-size:18px;width:270px; height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);"/>
+	    <input type="text" placeholder="请输入课程名:" style="position:absolute;top:110px;font-size:18px;width:270px;height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);"/>
+	    <input type="text" placeholder="请输入授课教师:" style="position:absolute;top:170px;font-size:18px;width:270px;height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);"/>
+	    <input type="text" placeholder="请输入上课班级:" style="position:absolute;top:230px;font-size:18px;width:270px;height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);"/>
+	    <input id="submit" type="submit" value="确定添加" style="position:absolute;top:350px;left:;cursor:pointer;opacity:1;background:#99CCCC;width:130px;height:44px;border:0px;border-radius:0.1em;font-size:18px;font-family:"微软雅黑";font-weight:20px;color:#ffffff;"/>
+	    <input id="cancel" type="button" value="取消添加" onclick="javascript:hideLayer('addlesson')" style="position:absolute;top:350px;left:50%; cursor:pointer;opacity:1;background:#99CCCC;width:130px;height:44px;border:0px;border-radius:0.1em;font-size:18px;font-family:"微软雅黑";font-weight:20px;color:#ffffff;"/>
+	    </form>
+	   </div>
+	   <div id="updatelesson" style="position: absolute; background: #E5E5E5; width: 600PX;height: 450px; z-index: 5000;">
+	   	<form method="post" action="#" style="padding-left: 26%;">
+	   	<p style="margin-left: 20%;font-size: 20px;">修改课程</p>
+	    <input type="text" placeholder="请输入课程号:" class="user" style="position:absolute;top:50px;font-size:18px;width:270px; height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);"/>
+	    <input type="text" placeholder="请输入课程名:" style="position:absolute;top:110px;font-size:18px;width:270px;height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);"/>
+	    <input type="text" placeholder="请输入授课教师:" style="position:absolute;top:170px;font-size:18px;width:270px;height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);"/>
+	    <input type="text" placeholder="请输入上课班级:" style="position:absolute;top:230px;font-size:18px;width:270px;height:44px;color:black;background:rgba(45,45,45,0.15);border-radius:6px;border:1px solid rgba(255,255,255,.15);"/>
+	    <input id="submit" type="submit" value="确定修改" style="position:absolute;top:350px;left:;cursor:pointer;opacity:1;background:#99CCCC;width:130px;height:44px;border:0px;border-radius:0.1em;font-size:18px;font-family:"微软雅黑";font-weight:20px;color:#ffffff;"/>
+	    <input id="cancel" type="button" value="取消修改" onclick="javascript:hideLayer('updatelesson')" style="position:absolute;top:350px;left:50%; cursor:pointer;opacity:1;background:#99CCCC;width:130px;height:44px;border:0px;border-radius:0.1em;font-size:18px;font-family:"微软雅黑";font-weight:20px;color:#ffffff;"/>
+	    </form>
+	   </div>
+		<div class="course_attribute">
+		<table border="1" width="1500" height="50" align="center" cellpadding="10" cellspacing="0" id="course_list">
+			<thead>
+				<tr id="tea_head">
+					<th class="th_head2">课程号</th>
+					<th class="th_head2" width="300px">课程名</th>
+					<th class="th_head2">授课教师</th>
+					<th class="th_head2">上课班级</th>
+					<th colspan="2">
+					<form method="post" action="#" id="add">
+					<input type="button" value="添加课程" class="add_Tea" onclick="showLayer('addlesson',600,450)"/>
+					</form>
+					</th>
+				</tr>
+			</thead>
+		</table>
+		<div id="teacher_list1">
+			 <span id="spanFirst">第一页</span> <span id="spanPre">上一页</span> <span id="spanNext">下一页</span> <span id="spanLast">最后一页</span> 第<span id="spanPageNum"></span>页/共<span id="spanTotalPage"></span>页
+		</div>
+	</div>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gxun.task.mapper.CourseMapper">
+    <select id="insertCourseInfo" resultMap="insertCourseMap">
+		insert into course values(null,#{param1},#{param2},#{param3},#{param4})
+    </select>
+    <resultMap type="Course" id="insertCourseMap">
+	    <id property="id" column="id"/>
+		<result property="c_no" column="c_no"/>
+		<result property="c_name" column="c_name"/>
+		<result property="c_class" column="c_class"/>
+		<result property="c_teacher" column="c_teacher"/>
+    </resultMap>
+    
+    
+    <select id="searchCourseInfo" resultMap="searchCourseMap">
+       select * from course
+    </select>
+    <resultMap type="Course" id="searchCourseMap">
+       
+		<result property="c_no" column="c_no"/>
+		<result property="c_name" column="c_name"/>
+		<result property="c_teacher" column="c_teacher"/>
+		<result property="c_class" column="c_class"/>
+    </resultMap>
+    
+</mapper>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="#" class="hhh">晚上在做</a>
+		<script>
+			$(document).ready(function(){
+				$(".hhh").click(function(){
+					alert("你点我！");
+				})
+			})
+		</script> 
+	</body>
+</html>

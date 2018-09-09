@@ -1,0 +1,9 @@
+package com.gxun.task.service;
+
+public interface TaskService {
+	//添加课程
+	public boolean addCourse(String courseName);
+	//判断课程是否存在
+	public boolean isExist(String courseName);
+	public String getCourses();
+}

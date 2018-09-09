@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+	</head>
+	<body background="../images/timg.jpg " style="background-repeat: no-repeat;background-size:100% 100%;background-attachment: fixed;"> 
+		
+
+
+<div style="padding: 200px 200px 100px;" align="center" >
+	 <div class="input-group" style="width: 300px;height: 20px;">
+       <img src="../images/beijing.png"style="width: 600px;height: 70px;" />
+        </div>
+    <form  action="../user/lg" >
+        <div class="input-group" style="width: 300px;height: 20px;padding-top: 20px;">
+            <span class="input-group-addon">学号</span>
+            <input type="text" class="form-control" placeholder="输入账号" name="account" >
+        </div>
+        <br>
+       <div class="input-group"style="width: 300px;height: 20px;">
+            <span class="input-group-addon">密码</span>
+            <input type="password" class="form-control" placeholder="输入密码" name="pwd">
+        </div>
+         <div class="input-group"style="width: 300px;height: 20px;padding-top: 10px;">
+         <input type="submit" style="width: 300px;height: 30px;" value="登陆"/>
+        </div>
+    </form>
+</div>
+
+
+
+		
+	</body>
+</html>
